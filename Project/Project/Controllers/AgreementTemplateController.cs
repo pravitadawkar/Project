@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Project.Interface;
-using Project.Model;
 using Project.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -12,37 +11,37 @@ namespace Project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AgreementTypeController : ControllerBase
+    public class AgreementTemplateController : ControllerBase
     {
-        IAgreementType _data;
-        public AgreementTypeController(IAgreementType data)
+        IAgreementTemplate _data;
+        public AgreementTemplateController(IAgreementTemplate data)
         {
             _data = data;
         }
         [HttpGet]
-        [Route("GetAgreementTypes")]
-        public IActionResult GetAgreementTypes()
+        [Route("GetAgreementTemplate")]
+        public IActionResult GetAgreementTemplate()
         {
-            var result = _data.GetAllAgreementTypes();
+            var result = _data.GetAllAgreementTemplates();
             return Ok(result);
         }
         [HttpGet]
-        [Route("GetAgreementType")]
-        public IActionResult GetAgreementType(int id)
+        [Route("GetAgreementTemplate")]
+        public IActionResult GetAgreementTemplate(int id)
         {
-            var result = _data.GetAgreementType(id);
+            var result = _data.GetAgreementTemplate(id);
             return Ok(result);
         }
         [HttpPost]
-        [Route("AddAgreementType")]
-        public IActionResult AddAgreementType(AgreementTypeDTO agreement)
+        [Route("AddAgreementTemplate")]
+        public IActionResult AddAgreementTemplate(AgreementTemplateDTO agreement)
         {
             _data.Insert(agreement);
             return Ok();
         }
         [HttpPost]
-        [Route("UpdateAgreementType")]
-        public IActionResult UpdateAgreementType(AgreementTypeDTO agreement)
+        [Route("UpdateAgreementTemplate")]
+        public IActionResult UpdateAgreementTemplate(AgreementTemplateDTO agreement)
         {
             try
             {
@@ -56,8 +55,8 @@ namespace Project.Controllers
             }
         }
         [HttpPost]
-        [Route("DeleteAgreementType")]
-        public IActionResult DeleteAgreementType(int id)
+        [Route("DeleteAgreementTemplate")]
+        public IActionResult DeleteAgreementTemplate(int id)
         {
             _data.delete(id);
             return Ok();

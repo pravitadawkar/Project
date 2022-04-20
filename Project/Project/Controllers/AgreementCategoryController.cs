@@ -12,10 +12,10 @@ namespace Project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AgreementTypeController : ControllerBase
+    public class AgreementCategoryController : ControllerBase
     {
-        IAgreementType _data;
-        public AgreementTypeController(IAgreementType data)
+        IAgreementCategory _data;
+        public AgreementCategoryController(IAgreementCategory data)
         {
             _data = data;
         }
@@ -23,26 +23,26 @@ namespace Project.Controllers
         [Route("GetAgreementTypes")]
         public IActionResult GetAgreementTypes()
         {
-            var result = _data.GetAllAgreementTypes();
+            var result = _data.GetAllAgreementCategorys();
             return Ok(result);
         }
         [HttpGet]
-        [Route("GetAgreementType")]
-        public IActionResult GetAgreementType(int id)
+        [Route("GetAgreementCategory")]
+        public IActionResult GetAgreementCategory(int id)
         {
-            var result = _data.GetAgreementType(id);
+            var result = _data.GetAgreementCategory(id);
             return Ok(result);
         }
         [HttpPost]
-        [Route("AddAgreementType")]
-        public IActionResult AddAgreementType(AgreementTypeDTO agreement)
+        [Route("AddAgreementCategory")]
+        public IActionResult AddAgreementCategory(AgreementCategoryDTO agreement)
         {
             _data.Insert(agreement);
             return Ok();
         }
         [HttpPost]
-        [Route("UpdateAgreementType")]
-        public IActionResult UpdateAgreementType(AgreementTypeDTO agreement)
+        [Route("UpdateAgreementCategory")]
+        public IActionResult UpdateAgreementCategory(AgreementCategoryDTO agreement)
         {
             try
             {
@@ -56,8 +56,8 @@ namespace Project.Controllers
             }
         }
         [HttpPost]
-        [Route("DeleteAgreementType")]
-        public IActionResult DeleteAgreementType(int id)
+        [Route("DeleteAgreementCategory")]
+        public IActionResult DeleteAgreementCategory(int id)
         {
             _data.delete(id);
             return Ok();

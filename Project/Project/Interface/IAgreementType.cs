@@ -1,4 +1,5 @@
 ﻿using Project.Model;
+using Project.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,10 @@ namespace Project.Interface
 {
    public interface IAgreementType
     {
-        public List<AgreementType> GetAllAgreementTypes();
-        public AgreementType GetAgreementType(int id);
-        public void Insert(AgreementType agreement);
-        public void Update(AgreementType agreement);
+        public List<AgreementTypeDTO> GetAllAgreementTypes();
+        public AgreementTypeDTO GetAgreementType(int id);
+        public void Insert(AgreementTypeDTO agreement);
+        public void Update(AgreementTypeDTO agreement);
         public void delete(int id);
 
     }

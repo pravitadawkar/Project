@@ -9,33 +9,33 @@ using System.Threading.Tasks;
 
 namespace Project.Services
 {
-    public class AgreementTypeService:IAgreementType
+    public class AgreementCategoryService:IAgreementCategory
     {
         ApplicationDbContext _context;
-        public AgreementTypeService(ApplicationDbContext context)
+        public AgreementCategoryService(ApplicationDbContext context)
         {
             _context = context;
         }
-        public List<AgreementTypeDTO> GetAllAgreementTypes()
+        public List<AgreementCategoryDTO> GetAllAgreementCategorys()
         {
-            var reslt = (from e in _context.AgreementTypes
-                         select new AgreementTypeDTO
+            var reslt = (from e in _context.AgreementCategorys
+                         select new AgreementCategoryDTO
                          {
                              Id = e.Id,
-                             Name = e.Name,
-                             Status = e.Status,
-                             CreatedAt = e.CreatedAt,
-                             CreatedBy = e.CreatedBy,
-                             ModifiedAt = e.ModifiedAt,
-                             ModifiedBy = e.ModifiedBy,
-                             IsActive = e.IsActive,
+                             Name=e.Name,
+                             Status=e.Status,
+                             CreatedAt=e.CreatedAt,
+                             CreatedBy=e.CreatedBy,
+                             ModifiedAt=e.ModifiedAt,
+                             ModifiedBy=e.ModifiedBy,
+                             IsActive=e.IsActive,
                          }).ToList();
             return reslt;
         }
-        public AgreementTypeDTO GetAgreementType(int id)
+        public AgreementCategoryDTO GetAgreementCategory(int id)
         {
-            var reslt = (from e in _context.AgreementTypes.Where(e => e.Id == id)
-                         select new AgreementTypeDTO
+            var reslt = (from e in _context.AgreementCategorys.Where(e => e.Id == id)
+                         select new AgreementCategoryDTO
                          {
                              Id = e.Id,
                              Name = e.Name,
@@ -47,8 +47,9 @@ namespace Project.Services
                              IsActive = e.IsActive,
                          }).FirstOrDefault();
             return reslt;
+
         }
-        public void Insert(AgreementTypeDTO agreement)
+        public void Insert(AgreementCategoryDTO agreement)
         {
             AgreementCategory agreementCategory = new AgreementCategory();
             agreementCategory.Id = agreement.Id;
@@ -62,7 +63,7 @@ namespace Project.Services
             _context.Add(agreementCategory);
             _context.SaveChanges();
         }
-        public void Update(AgreementTypeDTO agreement)
+        public void Update(AgreementCategoryDTO agreement)
         {
             AgreementCategory agreementCategory = new AgreementCategory();
             agreementCategory.Id = agreement.Id;
@@ -78,7 +79,7 @@ namespace Project.Services
         }
         public void delete(int id)
         {
-            var agreement = _context.AgreementTypes.Where(s => s.Id == id).FirstOrDefault();
+            var agreement = _context.AgreementCategorys.Where(s => s.Id == id).FirstOrDefault();
 
             if (agreement != null)
             {
