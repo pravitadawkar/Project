@@ -22,6 +22,11 @@ namespace Project.Athentication
            .WithMany(e => e.Agreementtype)
            .HasForeignKey(el => el.TypeId);
 
+            builder.Entity<AgreementType>()
+           .HasOne(el => el.AgreementCategory)
+           .WithMany(e => e.Agreementtype)
+           .HasForeignKey(el => el.TypeId);
+
            // builder.Entity<AgreementCategory>()
            //.HasOne(el => el.AgreementTemplate)
            //.WithOne(e => e.AgreementCategory)
