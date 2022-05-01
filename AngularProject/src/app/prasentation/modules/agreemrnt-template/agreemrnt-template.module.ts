@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { AgreemrntTemplateRoutingModule } from './agreemrnt-template-routing.module';
 import{AgreementTemplateComponent}from './../../layout/agreement-template/agreement-template.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import{InterceptorService} from './../../../core/interceptors/interceptor.service'
 
 @NgModule({
   declarations: [
@@ -10,7 +13,12 @@ import{AgreementTemplateComponent}from './../../layout/agreement-template/agreem
   ],
   imports: [
     CommonModule,
-    AgreemrntTemplateRoutingModule
-  ]
+    AgreemrntTemplateRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers:[
+    {
+      provide:HTTP_INTERCEPTORS,useClass:InterceptorService,multi:true}]
 })
 export class AgreemrntTemplateModule { }
