@@ -19,8 +19,8 @@ namespace Project.Controllers
             _data = data;
         }
         [HttpGet]
-        [Route("GetAgreementTemplate")]
-        public IActionResult GetAgreementTemplate()
+        [Route("GetAgreementTemplates")]
+        public IActionResult GetAgreementTemplates()
         {
             var result = _data.GetAllAgreementTemplates();
             return Ok(result);

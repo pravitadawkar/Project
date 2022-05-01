@@ -20,8 +20,8 @@ namespace Project.Controllers
             _data = data;
         }
         [HttpGet]
-        [Route("GetAgreementTypes")]
-        public IActionResult GetAgreementTypes()
+        [Route("GetAgreementCategorys")]
+        public IActionResult GetAgreementCategory()
         {
             var result = _data.GetAllAgreementCategorys();
             return Ok(result);

@@ -9,8 +9,8 @@ namespace Project.ViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int CategoryId { get; set; }
-        public int TypeId { get; set; }
+        public string Categoryname{ get; set; }
+        public string Typename { get; set; }
         public bool Status { get; set; }
         public DateTime EffectiveDate { get; set; }
         public DateTime ExpiryDate { get; set; }

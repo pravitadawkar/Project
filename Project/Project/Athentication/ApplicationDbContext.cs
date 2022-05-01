@@ -17,15 +17,15 @@ namespace Project.Athentication
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<AgreementType>()
-           .HasOne(el => el.Agreementtemplate)
-           .WithMany(e => e.Agreementtype)
-           .HasForeignKey(el => el.TypeId);
+          //  builder.Entity<AgreementTemplate>()
+          //.HasMany(el => el.Agreementtype)
+          //.WithOne(e => e.Agreementtemplate)
+          //.HasForeignKey(e => e.TypeId);
 
-            builder.Entity<AgreementType>()
-           .HasOne(el => el.AgreementCategory)
-           .WithMany(e => e.Agreementtype)
-           .HasForeignKey(el => el.TypeId);
+          //  builder.Entity<AgreementCategory>()
+          // .HasMany(el => el.Agreementtype)
+          // .WithOne(e => e.AgreementCategory)
+          // .HasForeignKey(e => e.TypeId);
 
            // builder.Entity<AgreementCategory>()
            //.HasOne(el => el.AgreementTemplate)

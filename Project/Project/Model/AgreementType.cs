@@ -17,7 +17,5 @@ namespace Project.Model
         public bool IsActive { get; set; }
         public virtual AgreementTemplate Agreementtemplate { get; set; }
         public virtual AgreementCategory AgreementCategory { get; set; }
-
-        public object TypeId { get; internal set; }
     }
 }

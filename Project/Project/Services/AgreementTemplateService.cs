@@ -31,8 +31,8 @@ namespace Project.Services
                              ModifiedAt = e.ModifiedAt,
                              ModifiedBy = e.ModifiedBy,
                              IsActive = e.IsActive,
-                             CategoryId=eu.Id,
-                             TypeId=el.Id,
+                             Categoryname=eu.Name,
+                             Typename=el.Name,
                              EffectiveDate=e.EffectiveDate,
                              ExpiryDate=e.ExpiryDate
                          }).ToList();
@@ -53,8 +53,8 @@ namespace Project.Services
                              ModifiedAt = e.ModifiedAt,
                              ModifiedBy = e.ModifiedBy,
                              IsActive = e.IsActive,
-                             CategoryId = eu.Id,
-                             TypeId = el.Id,
+                             Categoryname = eu.Name,
+                             Typename = el.Name,
                              EffectiveDate = e.EffectiveDate,
                              ExpiryDate = e.ExpiryDate
                          }).FirstOrDefault();
@@ -73,8 +73,8 @@ namespace Project.Services
             agreementtemplate.IsActive = agreement.IsActive;
             agreementtemplate.ExpiryDate = agreement.ExpiryDate;
             agreementtemplate.EffectiveDate = agreement.EffectiveDate;
-            agreementtemplate.CategoryId = agreement.CategoryId;
-            agreementtemplate.TypeId = agreement.TypeId;
+            agreementtemplate.Name = agreement.Categoryname;
+            agreementtemplate.Name = agreement.Typename;
 
 
             _context.Add(agreementtemplate);
@@ -93,8 +93,9 @@ namespace Project.Services
             agreementtemplate.IsActive = agreement.IsActive;
             agreementtemplate.ExpiryDate = agreement.ExpiryDate;
             agreementtemplate.EffectiveDate = agreement.EffectiveDate;
-            agreementtemplate.CategoryId = agreement.CategoryId;
-            agreementtemplate.TypeId = agreement.TypeId;
+            agreementtemplate.Name = agreement.Categoryname;
+            agreementtemplate.Name = agreement.Typename;
+
             _context.Update(agreementtemplate);
             _context.SaveChanges();
         }
